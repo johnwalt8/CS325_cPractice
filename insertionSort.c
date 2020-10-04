@@ -10,7 +10,8 @@ int main(int argc, char* argv[])
 {
     int arrayLength = argc - 1;
     int A[99] = {0};
-    for (int k = 1; k < argc; k++)
+    int k = -7;
+    for (k = 1; k < argc; k++)
     {
         A[k - 1] = atoi(argv[k]);
     }
@@ -18,6 +19,7 @@ int main(int argc, char* argv[])
     printArray(arrayLength, A);
 
     int i = 0;
+    int j = -7;
     for (int j = 1; j < arrayLength; j++)
     {
         int key = A[j];
@@ -36,7 +38,8 @@ int main(int argc, char* argv[])
 int printArray(int length, int array[])
 {
     printf("A: {");
-    for (int k = 0; k < length; k++)
+    int k = -7;
+    for (k = 0; k < length; k++)
     {
         printf("%d", array[k]);
         if (k < length - 1)
