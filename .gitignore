@@ -1,16 +1,17 @@
 # ignore compiled files
-######################
+#######################
 
 hw
-insertionSort
-mergeSort
+insertionsort
+mergesort
+stoogesort
 
 # ignore test files
 ###################
 
 textFile.txt
 
-# ignore vscodefile
-###################
+# ignore vscodefiles
+####################
 
 .vscode/*
