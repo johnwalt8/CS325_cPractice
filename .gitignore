@@ -5,6 +5,10 @@ hw
 insertionsort
 mergesort
 stoogesort
+ternarySearch
+makingChange
+recursiveActivitySelector
+greedyActivitySelector
 
 # ignore test files
 ###################
