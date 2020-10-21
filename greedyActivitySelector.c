@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int greedyActivitySelector(int start[], int finish[], int activities[]);
+int greedyActivitySelector(int start[], int finish[], int activities[], int numActivities);
 int printArray(char* aName, int length, int array[]);
 
 int main(int argc, char* argv[])
@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
         activities[i] = 0;
     }
 
-    int numSelected = greedyActivitySelector(start, finish, activities);
+    int numSelected = greedyActivitySelector(start, finish, activities, numActivities);
 
     printArray("activities", numSelected, activities);
 
@@ -38,26 +38,24 @@ int main(int argc, char* argv[])
     }
 }
 
-int greedyActivitySelector(int start[], int finish[], int activities[])
+int greedyActivitySelector(int start[], int finish[], int activities[], int numActivities)
 {
-    int numActivities = 11; // sizeof(&start)/sizeof(start[0]);
-    printf("numActivities: %d\n", numActivities);
-
     activities[0] = 0; // the first activity has the earliest finish time, because sorted
 
-    int index = 1, activityIndex = 1;
+    int index = 1, numSelected = 1;
+    
     int nextIndex = -7;
     for (nextIndex = 2; nextIndex < numActivities; nextIndex++)
     {
         if (start[nextIndex] >= finish[index])
         {
-            activities[activityIndex] = nextIndex;
-            activityIndex = activityIndex + 1;
+            activities[numSelected] = nextIndex;
+            numSelected = numSelected + 1;
             index = nextIndex;
         }
     }
 
-    return activityIndex;
+    return numSelected;
 }
 
 int printArray(char* aName, int length, int array[])
