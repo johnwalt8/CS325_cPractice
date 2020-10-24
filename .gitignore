@@ -9,6 +9,7 @@ ternarySearch
 makingChange
 recursiveActivitySelector
 greedyActivitySelector
+roadTrip
 
 # ignore test files
 ###################
