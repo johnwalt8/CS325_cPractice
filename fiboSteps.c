@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+unsigned long int getWays(int A);
+
 int main(int argc, char* argv[])
 {
     int A = 7; // can't be larger than 47
@@ -11,7 +13,15 @@ int main(int argc, char* argv[])
     {
         A = atoi(argv[1]);
     }
-    int previousTwo[] = {1, 1}; // base cases: steps 0 and 1
+
+    unsigned long int distinctWaysToA = getWays(A);
+
+    printf("Given %d steps, there are %lld distinct ways to climb to the top.\n", A, distinctWaysToA);
+}
+
+unsigned long int getWays(int A)
+{
+    unsigned long int previousTwo[] = {1, 1}; // base cases: steps 0 and 1
 
     int index = 1;
     int j = -7;
@@ -19,11 +29,7 @@ int main(int argc, char* argv[])
     {
         index = index == 0 ? 1 : 0;
         previousTwo[index] = previousTwo[0] + previousTwo[1];
-        // index = index == 0 ? 1 : 0;
     }
 
-    int distinctWaysToA = previousTwo[0] + previousTwo[1];
-
-    printf("Given %d steps, there are %d distinct ways to climb to the top.\n", A, previousTwo[index]);
+    return previousTwo[index];
 }
-
