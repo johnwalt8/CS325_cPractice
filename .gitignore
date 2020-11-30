@@ -10,6 +10,8 @@ makingChange
 recursiveActivitySelector
 greedyActivitySelector
 roadTrip
+schedWithP
+fiboSteps
 
 # ignore test files
 ###################
