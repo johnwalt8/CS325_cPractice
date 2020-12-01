@@ -13,10 +13,27 @@ int main(int argc, char* argv[])
     {
         A = atoi(argv[1]);
     }
+    else
+    {
+        printf("Please include a postive integer as one command line argument.\n");
+        return 0;
+    }
+
+    if (A > 91)
+    {
+        printf("I'm sorry, due to system limitations, the number of distinct ways to climb to the top cannot be calculated for staircases of more than 91 steps.\n");
+        return 0;
+    }
+    else if (A < 0)
+    {
+        printf("I'm sorry, staircases can't have a negative number of steps.\n");
+        return 0;
+    }
+    
 
     unsigned long long int distinctWaysToA = getWays(A);
 
-    printf("Given %d steps, there are %lld distinct ways to climb to the top.\n", A, distinctWaysToA);
+    printf("Given a staircase of %d steps, taking one or two steps at a time, there are %lld distinct ways to climb to the top.\n", A, distinctWaysToA);
 }
 
 unsigned long long int getWays(int A)
